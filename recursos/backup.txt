@@ -1,0 +1,470 @@
+            // Armo una consulta para validar la tabla de ticket de acceso
+            sentenciaSQL = "SELECT * FROM afipws_fe_wsaa_TA";
+            
+            // Pregunto si la afipws_fe_wsaa_TA esta ok
+            if(!this.validarEstructura(sentenciaSQL)){
+                
+                // Armo la consulta 
+                sentenciaSQL =  "CREATE TABLE DBA.afipws_fe_wsaa_TA (" +
+                                "	uid UNSIGNED INT NOT NULL," +
+                                "	genTime datetime NULL," +
+                                "	expTime datetime NULL," +
+                                "	token text NULL," +
+                                "	sign text NULL," +
+                                "	source text NULL," +
+                                "	destination text NULL," +
+                                "	operador_codigo VARCHAR(5) NULL," +
+                                "	activo CHAR(1) NULL DEFAULT 'S'," +
+                                "	TestSN CHAR(1) NULL DEFAULT 'S'," +
+                                "	ultActualizacion datetime NOT NULL DEFAULT CURRENT TIMESTAMP," +
+                                "	servicio VARCHAR(10) NULL," +
+                                "	PRIMARY KEY ( uid )" +
+                                ") IN system;" +
+                                "COMMENT ON TABLE DBA.afipws_fe_wsaa_TA IS 'AFIP WS - TA (Tickets de Acceso)';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.uid IS 'UniqueID';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.genTime IS 'Generación';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.expTime IS 'Expiración';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.token IS 'Token';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.sign IS 'Signature';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.source IS 'Source';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.destination IS 'Destination';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.operador_codigo IS 'Operador que solicitó el TA';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.activo IS 'TA activo';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.servicio IS 'Nombre del servicio para el cual se pidio el ticket';";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);                     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_fe_wsaa_TA creada con exito.");
+                
+            }  else {
+                
+                // Armo la consulta 
+                sentenciaSQL =  "DROP TABLE DBA.afipws_fe_wsaa_TA; " +
+                                "CREATE TABLE DBA.afipws_fe_wsaa_TA (" +
+                                "	uid UNSIGNED INT NOT NULL," +
+                                "	genTime datetime NULL," +
+                                "	expTime datetime NULL," +
+                                "	token text NULL," +
+                                "	sign text NULL," +
+                                "	source text NULL," +
+                                "	destination text NULL," +
+                                "	operador_codigo VARCHAR(5) NULL," +
+                                "	activo CHAR(1) NULL DEFAULT 'S'," +
+                                "	TestSN CHAR(1) NULL DEFAULT 'S'," +
+                                "	ultActualizacion datetime NOT NULL DEFAULT CURRENT TIMESTAMP," +
+                                "	servicio VARCHAR(10) NULL," +
+                                "	PRIMARY KEY ( uid )" +
+                                ") IN system;" +
+                                "COMMENT ON TABLE DBA.afipws_fe_wsaa_TA IS 'AFIP WS - TA (Tickets de Acceso)';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.uid IS 'UniqueID';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.genTime IS 'Generación';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.expTime IS 'Expiración';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.token IS 'Token';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.sign IS 'Signature';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.source IS 'Source';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.destination IS 'Destination';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.operador_codigo IS 'Operador que solicitó el TA';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.activo IS 'TA activo';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.servicio IS 'Nombre del servicio para el cual se pidio el ticket';";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);                    
+        
+                // Genero salida en el log
+                log.info("La tabla afipws_fe_wsaa_TA esta OK!");            
+            } 
+            
+            // Armo una consulta para validar la tabla que tiene los parametros de conexion
+            sentenciaSQL = "SELECT * FROM afipws_wsaa_TRA_java";
+            
+            // Pregunto si la afipws_fe_wsaa_TA esta ok
+            if(!this.validarEstructura(sentenciaSQL)){
+                
+                // Armo la consulta 
+                sentenciaSQL = "CREATE TABLE DBA.afipws_wsaa_TRA_java (" +
+                               "	TestSN CHAR(1) NOT NULL DEFAULT 'S'," +
+                               "	trustStoreFile VARCHAR(100) NULL," +
+                               "	trustStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreFile VARCHAR(100) NULL," +
+                               "	keyStoreSigner VARCHAR(20) NULL," +
+                               "	keyStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreTimeout NUMERIC(10,0) NULL DEFAULT 690," +
+                               "	destino VARCHAR(100) NULL," +
+                               "	servicio VARCHAR(20) NOT NULL," +
+                               "	endPoint text NULL," +
+                               "	ultActualizacion datetime NULL DEFAULT CURRENT TIMESTAMP," +
+                               "	PRIMARY KEY ( TestSN, servicio)" +
+                               ") IN system;" +
+                               "COMMENT ON TABLE DBA.afipws_wsaa_TRA_java IS 'AFIP WS  - parametros para solicitar TA (java)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.TestSN IS 'S=test, N=producción';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStoreFile IS 'trustStore path relativo ';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStorePwd IS 'trustStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreFile IS 'keyStore path relativo';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreSigner IS 'keyStore signer (1)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStorePwd IS 'keyStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreTimeout IS 'keyStore Timeout';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.destino IS 'dstn';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.servicio IS 'nombre ws a usar';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.endPoint IS 'url';" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','kernel',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsfe','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsfe','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsmtxca','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsmtxca','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion            // Armo una consulta para validar la tabla de ticket de acceso
+            sentenciaSQL = "SELECT * FROM afipws_fe_wsaa_TA";
+            
+            // Pregunto si la afipws_fe_wsaa_TA esta ok
+            if(!this.validarEstructura(sentenciaSQL)){
+                
+                // Armo la consulta 
+                sentenciaSQL =  "CREATE TABLE DBA.afipws_fe_wsaa_TA (" +
+                                "	uid UNSIGNED INT NOT NULL," +
+                                "	genTime datetime NULL," +
+                                "	expTime datetime NULL," +
+                                "	token text NULL," +
+                                "	sign text NULL," +
+                                "	source text NULL," +
+                                "	destination text NULL," +
+                                "	operador_codigo VARCHAR(5) NULL," +
+                                "	activo CHAR(1) NULL DEFAULT 'S'," +
+                                "	TestSN CHAR(1) NULL DEFAULT 'S'," +
+                                "	ultActualizacion datetime NOT NULL DEFAULT CURRENT TIMESTAMP," +
+                                "	servicio VARCHAR(10) NULL," +
+                                "	PRIMARY KEY ( uid )" +
+                                ") IN system;" +
+                                "COMMENT ON TABLE DBA.afipws_fe_wsaa_TA IS 'AFIP WS - TA (Tickets de Acceso)';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.uid IS 'UniqueID';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.genTime IS 'Generación';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.expTime IS 'Expiración';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.token IS 'Token';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.sign IS 'Signature';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.source IS 'Source';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.destination IS 'Destination';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.operador_codigo IS 'Operador que solicitó el TA';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.activo IS 'TA activo';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.servicio IS 'Nombre del servicio para el cual se pidio el ticket';";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);                     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_fe_wsaa_TA creada con exito.");
+                
+            }  else {
+                
+                // Armo la consulta 
+                sentenciaSQL =  "DROP TABLE DBA.afipws_fe_wsaa_TA; " +
+                                "CREATE TABLE DBA.afipws_fe_wsaa_TA (" +
+                                "	uid UNSIGNED INT NOT NULL," +
+                                "	genTime datetime NULL," +
+                                "	expTime datetime NULL," +
+                                "	token text NULL," +
+                                "	sign text NULL," +
+                                "	source text NULL," +
+                                "	destination text NULL," +
+                                "	operador_codigo VARCHAR(5) NULL," +
+                                "	activo CHAR(1) NULL DEFAULT 'S'," +
+                                "	TestSN CHAR(1) NULL DEFAULT 'S'," +
+                                "	ultActualizacion datetime NOT NULL DEFAULT CURRENT TIMESTAMP," +
+                                "	servicio VARCHAR(10) NULL," +
+                                "	PRIMARY KEY ( uid )" +
+                                ") IN system;" +
+                                "COMMENT ON TABLE DBA.afipws_fe_wsaa_TA IS 'AFIP WS - TA (Tickets de Acceso)';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.uid IS 'UniqueID';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.genTime IS 'Generación';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.expTime IS 'Expiración';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.token IS 'Token';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.sign IS 'Signature';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.source IS 'Source';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.destination IS 'Destination';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.operador_codigo IS 'Operador que solicitó el TA';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.activo IS 'TA activo';" +
+                                "COMMENT ON COLUMN DBA.afipws_fe_wsaa_TA.servicio IS 'Nombre del servicio para el cual se pidio el ticket';";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);                    
+        
+                // Genero salida en el log
+                log.info("La tabla afipws_fe_wsaa_TA esta OK!");            
+            } 
+            
+            // Armo una consulta para validar la tabla que tiene los parametros de conexion
+            sentenciaSQL = "SELECT * FROM afipws_wsaa_TRA_java";
+            
+            // Pregunto si la afipws_fe_wsaa_TA esta ok
+            if(!this.validarEstructura(sentenciaSQL)){
+                
+                // Armo la consulta 
+                sentenciaSQL = "CREATE TABLE DBA.afipws_wsaa_TRA_java (" +
+                               "	TestSN CHAR(1) NOT NULL DEFAULT 'S'," +
+                               "	trustStoreFile VARCHAR(100) NULL," +
+                               "	trustStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreFile VARCHAR(100) NULL," +
+                               "	keyStoreSigner VARCHAR(20) NULL," +
+                               "	keyStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreTimeout NUMERIC(10,0) NULL DEFAULT 690," +
+                               "	destino VARCHAR(100) NULL," +
+                               "	servicio VARCHAR(20) NOT NULL," +
+                               "	endPoint text NULL," +
+                               "	ultActualizacion datetime NULL DEFAULT CURRENT TIMESTAMP," +
+                               "	PRIMARY KEY ( TestSN, servicio)" +
+                               ") IN system;" +
+                               "COMMENT ON TABLE DBA.afipws_wsaa_TRA_java IS 'AFIP WS  - parametros para solicitar TA (java)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.TestSN IS 'S=test, N=producción';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStoreFile IS 'trustStore path relativo ';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStorePwd IS 'trustStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreFile IS 'keyStore path relativo';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreSigner IS 'keyStore signer (1)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStorePwd IS 'keyStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreTimeout IS 'keyStore Timeout';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.destino IS 'dstn';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.servicio IS 'nombre ws a usar';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.endPoint IS 'url';" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','kernel',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsfe','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsfe','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsmtxca','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsmtxca','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);                     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsaa_TRA_java creada con exito.");
+                
+            }  else {
+        
+                // Armo la consulta 
+                sentenciaSQL = "DROP TABLE DBA.afipws_wsaa_TRA_java;";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);     
+                
+                // Armo la consulta 
+                sentenciaSQL = "CREATE TABLE DBA.afipws_wsaa_TRA_java (" +
+                               "	TestSN CHAR(1) NOT NULL DEFAULT 'S'," +
+                               "	trustStoreFile VARCHAR(100) NULL," +
+                               "	trustStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreFile VARCHAR(100) NULL," +
+                               "	keyStoreSigner VARCHAR(20) NULL," +
+                               "	keyStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreTimeout NUMERIC(10,0) NULL DEFAULT 690," +
+                               "	destino VARCHAR(100) NULL," +
+                               "	servicio VARCHAR(20) NOT NULL," +
+                               "	endPoint text NULL," +
+                               "	ultActualizacion datetime NULL DEFAULT CURRENT TIMESTAMP," +
+                               "	PRIMARY KEY ( TestSN, servicio ASC )" +
+                               ") IN system;" +
+                               "COMMENT ON TABLE DBA.afipws_wsaa_TRA_java IS 'AFIP WS  - parametros para solicitar TA (java)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.TestSN IS 'S=test, N=producción';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStoreFile IS 'trustStore path relativo ';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStorePwd IS 'trustStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreFile IS 'keyStore path relativo';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreSigner IS 'keyStore signer (1)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStorePwd IS 'keyStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreTimeout IS 'keyStore Timeout';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.destino IS 'dstn';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.servicio IS 'nombre ws a usar';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.endPoint IS 'url';" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','kernel',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsfe','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsfe','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsmtxca','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsmtxca','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsaa_TRA_java esta OK!");            
+            } 
+            
+            //---------------------------//       
+
+                actualizar(sentencia);                     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsaa_TRA_java creada con exito.");
+                
+            }  else {
+        
+                // Armo la consulta 
+                sentenciaSQL = "DROP TABLE DBA.afipws_wsaa_TRA_java;";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                PreparedStatement sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);     
+                
+                // Armo la consulta 
+                sentenciaSQL = "CREATE TABLE DBA.afipws_wsaa_TRA_java (" +
+                               "	TestSN CHAR(1) NOT NULL DEFAULT 'S'," +
+                               "	trustStoreFile VARCHAR(100) NULL," +
+                               "	trustStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreFile VARCHAR(100) NULL," +
+                               "	keyStoreSigner VARCHAR(20) NULL," +
+                               "	keyStorePwd VARCHAR(20) NULL," +
+                               "	keyStoreTimeout NUMERIC(10,0) NULL DEFAULT 690," +
+                               "	destino VARCHAR(100) NULL," +
+                               "	servicio VARCHAR(20) NOT NULL," +
+                               "	endPoint text NULL," +
+                               "	ultActualizacion datetime NULL DEFAULT CURRENT TIMESTAMP," +
+                               "	PRIMARY KEY ( TestSN, servicio ASC )" +
+                               ") IN system;" +
+                               "COMMENT ON TABLE DBA.afipws_wsaa_TRA_java IS 'AFIP WS  - parametros para solicitar TA (java)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.TestSN IS 'S=test, N=producción';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStoreFile IS 'trustStore path relativo ';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.trustStorePwd IS 'trustStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreFile IS 'keyStore path relativo';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreSigner IS 'keyStore signer (1)';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStorePwd IS 'keyStore clave';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.keyStoreTimeout IS 'keyStore Timeout';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.destino IS 'dstn';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.servicio IS 'nombre ws a usar';" +
+                               "COMMENT ON COLUMN DBA.afipws_wsaa_TRA_java.endPoint IS 'url';" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','kernel',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaahomo,o=afip,c=ar,serialNumber=CUIT 33693450239','wslpg','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsfe','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsfe','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('S','kernel.jks','kernel','test-keystore.p12','matias','matias',3600000,'CN=wsaahomo,O=AFIP,C=AR,SERIALNUMBER=CUIT 33693450239','wsmtxca','https://wsaahomo.afip.gov.ar/ws/services/LoginCms','2015-07-28 15:52:25.613');" +
+                               "INSERT INTO DBA.afipws_wsaa_TRA_java (TestSN, trustStoreFile, trustStorePwd, keyStoreFile, " +
+                               "keyStoreSigner, keyStorePwd, keyStoreTimeout, destino, servicio,endPoint, ultActualizacion)" +
+                               "VALUES ('N','afip.jks','kernel','test-keystore.p12','matias','matias',3600000,'cn=wsaa,o=afip,c=ar,serialNumber=CUIT 33693450239','wsmtxca','https://wsaa.afip.gov.ar/ws/services/LoginCms','2015-03-10 00:00:00.000');";
+
+                // Instancio el objeto que me permite ejecutar consultas y le completo los parametros
+                sentencia = crearSentencia(sentenciaSQL);        
+
+                // Ejecuto la instruccion
+                actualizar(sentencia);     
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsaa_TRA_java esta OK!");            
+            } 
+            
+            //---------------------------//       
+
+
+            // Armo una consulta para validar la tabla de los servicios de la AFIP
+            sentenciaSQL = "DROP TABLE afipws_wsfe; SELECT 1 ;";
+            
+            // Pregunto si la afipws_fe_TiposMoneda esta ok
+            if(!this.validarEstructura(sentenciaSQL)){
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsfe no pudo eliminarse, posiblemente no existe");                         
+                
+            } 
+            
+            // Armo una consulta para crear la tabla
+            sentenciaSQL="CREATE TABLE DBA.afipws_wsfe (" +
+                         "	servicio VARCHAR(30) NOT NULL," +
+                         "	url text NULL," +
+                         "	TestSN CHAR(1) NOT NULL DEFAULT 'S'," +
+                         "	ultActualizacion datetime NOT NULL DEFAULT CURRENT TIMESTAMP," +
+                         "	PRIMARY KEY ( TestSN, servicio ASC )" +
+                         ") IN system;" +
+                         "COMMENT ON TABLE  DBA.afipws_wsfe IS 'AFIP WS - WSCTG Parámetros';" +
+                         "COMMENT ON COLUMN DBA.afipws_wsfe.servicio IS 'Nombre del Servicio al que apunta';" +
+                         "COMMENT ON COLUMN DBA.afipws_wsfe.url IS 'URL Endpoint';" +
+                         "COMMENT ON COLUMN DBA.afipws_wsfe.TestSN IS 'es Testing ?';" +
+                         "COMMENT ON COLUMN DBA.afipws_wsfe.ultActualizacion IS 'Ultima Edicion';" +
+                         "INSERT INTO  DBA.afipws_wsfe (servicio, url,TestSN, ultActualizacion) VALUES " +
+                         "('wsmtxca','https://fwshomo.afip.gov.ar/wsmtxca/services/MTXCAService?wsdl','S','2015-10-14');"+
+                         "INSERT INTO  DBA.afipws_wsfe (servicio, url,TestSN, ultActualizacion) " +
+                         "VALUES ('wsmtxca','https://serviciosjava.afip.gob.ar/wsmtxca/services/MTXCAService?wsdl','N','2015-10-14');" +
+                         "INSERT INTO  DBA.afipws_wsfe (servicio, url,TestSN, ultActualizacion) VALUES " +
+                         "('wsfe','https://wswhomo.afip.gov.ar/wsfev1/service.asmx?wsdl','S','2015-10-14'); " +
+                         "INSERT INTO  DBA.afipws_wsfe (servicio, url,TestSN, ultActualizacion) VALUES " +
+                         "('wsfe','https://servicios1.afip.gov.ar/wsfev1/service.asmx?WSDL','N','2015-10-14');" +
+                         "SELECT 1 ;";            
+            
+            // Pregunto si la afipws_fe_TiposMoneda esta ok
+            if(this.validarEstructura(sentenciaSQL)){
+                
+                // Genero salida en el log
+                log.info("La tabla afipws_wsfe creada con exito.");
+                
+            } 
+
+
+
+
+

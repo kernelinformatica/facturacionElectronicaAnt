@@ -1,0 +1,667 @@
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:20:31(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:20:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:20:32] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:20:32] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:20:32.019
+[FECHA: 06/04/2021 20:20:32] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:20:41] [TIPO: INFO ] [ORIGEN: util.ClienteNTP] - Utilizando Servidor NTP: 200.1.116.29
+[FECHA: 06/04/2021 20:20:41] [TIPO: ERROR] [ORIGEN: util.ClienteNTP] Hora Recibida:  Tue, Apr 06 2021 20:20:40.468
+[FECHA: 06/04/2021 20:20:41] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] GenTime: 2021-04-06T20:20:40.468-03:00
+[FECHA: 06/04/2021 20:20:41] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] ExpTime: 2021-04-06T21:20:40.468-03:00
+[FECHA: 06/04/2021 20:20:44] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] WSAA Url= https://wsaa.afip.gov.ar/ws/services/LoginCms
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] INSERT INTO afipws_fe_wsaa_TA VALUES (?,?,?,?,?,?,?,?,?,?,?)
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 811831195
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: 2021-04-06 08:20:46
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 3: 2021-04-07 12:00:00
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 4: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBkc3Q9IkNOPXdzZmUsIE89QUZJUCwgQz1BUiIgdW5pcXVlX2lkPSIyNjMxODExNDQxIiBnZW5fdGltZT0iMTYxNzc1MTE4NiIgZXhwX3RpbWU9IjE2MTc3OTQ0NDYiLz4KICAgIDxvcGVyYXRpb24gdHlwZT0ibG9naW4iIHZhbHVlPSJncmFudGVkIj4KICAgICAgICA8bG9naW4gZW50aXR5PSIzMzY5MzQ1MDIzOSIgc2VydmljZT0id3NmZSIgdWlkPSJDPWFyLCBPPWNvb3AuYWdyLm1peHRhIGxhIHByb3RlY3RvcmEgbHRkYS4sIFNFUklBTE5VTUJFUj1DVUlUIDMwNTI2NDAwMzAxLCBDTj1hZG1pbiIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjMwNTI2NDAwMzAxIiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 5: YV1ottO7gU0mXRg/mjLJZqUI6AHsBOmFFaXNpOAJNFg8NOYTfIqGh7Mmdowi7DI/93otAoGr7WgmAi+xY551l3OmSTyaQtPoKslYRRPzDvCu4oGM51xab+7CDahu9bKZy8A76FHKZHDDuZcc8rdskVCnt4/fGak8T2XIFtpgDqk=
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 6: CN=wsaa, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 7: C=ar, O=coop.agr.mixta la protectora ltda., SERIALNUMBER=CUIT 30526400301, CN=admin
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 8: JAVA
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 9: S
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 10: S
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 11: 2021-04-06 08:20:47
+[FECHA: 06/04/2021 20:20:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Ticket nuevo generado con exito!!!!
+[FECHA: 06/04/2021 20:20:56] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:20:56] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:20:56] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:21:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:21:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:21:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:21:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:21:40] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:22:11] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:22:12] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:22:12] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:22:12] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:22:13] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:22:13] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:22:23] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 0
+[FECHA: 06/04/2021 20:22:31] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4812
+[FECHA: 06/04/2021 20:22:33] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] No se encontraron comprobantes con esos parametros
+[FECHA: 06/04/2021 20:22:36] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] Error autorizando comprobantes: No se encontraron comprobantes con los parametros recibidos
+[FECHA: 06/04/2021 20:22:40] [TIPO: ERROR] [ORIGEN: main.Main] ATENCION!!! Resultado final con errores: Error autorizando comprobantes:
+[FECHA: 06/04/2021 20:22:41] [TIPO: INFO ] [ORIGEN: main.Main] ------------------- FIN PROCESO 2021-04-06 08:22:41 -------------------
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:25:30(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:25:30] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:25:31.149
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:25:31] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:25:40] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:25:40] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:25:40] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:25:54] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:25:54] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:25:54] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:25:54] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:26:07] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:26:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:26:18] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:26:18] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:26:19] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:26:19] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:26:20] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:26:45(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:26:45] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:26:46.001
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:26:46] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:26:48] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 0
+[FECHA: 06/04/2021 20:26:49] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4812
+[FECHA: 06/04/2021 20:26:49] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] No se encontraron comprobantes con esos parametros
+[FECHA: 06/04/2021 20:26:49] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] Error autorizando comprobantes: No se encontraron comprobantes con los parametros recibidos
+[FECHA: 06/04/2021 20:26:49] [TIPO: ERROR] [ORIGEN: main.Main] ATENCION!!! Resultado final con errores: Error autorizando comprobantes:
+[FECHA: 06/04/2021 20:26:49] [TIPO: INFO ] [ORIGEN: main.Main] ------------------- FIN PROCESO 2021-04-06 08:26:49 -------------------
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:30:16(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:30:16] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:30:17.16
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:30:17] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:30:20] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:30:20] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:30:20] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:30:34] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:30:34] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:30:34] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:30:34] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:30:44] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:30:52] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:30:53] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:30:53] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:30:53] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:30:54] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:30:54] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:31:20] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:31:21] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:31:21] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:31:21] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:31:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:31:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:31:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:31:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:32:32] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] Error autorizando comprobantes: null
+[FECHA: 06/04/2021 20:32:44] [TIPO: ERROR] [ORIGEN: main.Main] ATENCION!!! Resultado final con errores: Error autorizando comprobantes:
+[FECHA: 06/04/2021 20:32:44] [TIPO: INFO ] [ORIGEN: main.Main] ------------------- FIN PROCESO 2021-04-06 08:32:44 -------------------
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:34:23(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:34:23.97
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:34:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:34:32] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:34:32] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:34:32] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:34:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:34:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:34:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:34:45] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:34:54] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:35:01] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:35:01] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:35:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:35:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:35:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:35:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:35:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:35:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:35:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:35:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:35:11] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:35:11] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:35:12] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:35:12] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:38:47(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:38:47.976
+[FECHA: 06/04/2021 20:38:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:38:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:38:56] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:38:56] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:38:56] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 20:39:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 20:39:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 20:39:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 20:39:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 20:39:34] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 20:39:40] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 20:39:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:39:48] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:39:49] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:39:49] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:40:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 20:40:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 20:40:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 20:40:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 20:40:58] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 1
+[FECHA: 06/04/2021 20:41:55] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4812
+[FECHA: 06/04/2021 20:43:56] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] RESULTADO PROCESO NRO 1
+[FECHA: 06/04/2021 20:43:56] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] 	 Todos los comprobantes fueron rechazados, a continuacion se detallan los errores.
+[FECHA: 06/04/2021 20:43:56] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Observaciones:
+[FECHA: 06/04/2021 20:43:56] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Codigo: 10057 - Descripcion: De enviarse el tag CbtesAsoc debe enviarse Tipo mayor a 0
+[FECHA: 06/04/2021 20:44:02] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo Comprobante aprobado despues del proceso:
+[FECHA: 06/04/2021 20:44:02] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Tipo Cbte: 3 - Pto Venta: 31 - Nro Cbte: 4812
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 08:59:50(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 20:59:50.944
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 20:59:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 20:59:55] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 20:59:55] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 20:59:55] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 21:00:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 21:00:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 21:00:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 21:00:09] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 21:00:19] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 21:00:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 21:00:25] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:00:25] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:00:25] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:00:25] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 21:00:25] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 21:00:35] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:00:35] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:00:35] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:00:35] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:00:43] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:00:43] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:00:43] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:00:44] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 09:05:33(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 21:05:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 21:05:34.174
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 21:05:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 21:05:38] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 21:05:38] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 21:05:38] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 21:05:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 21:05:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 21:05:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 21:05:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 21:06:20] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 21:06:26] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 21:06:26] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:06:27] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:06:27] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:06:27] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 21:06:27] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 21:06:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:06:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:06:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:06:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:06:44] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:06:44] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:06:44] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:06:44] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 09:12:07(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 21:12:07] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 21:12:08.382
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 21:12:08] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 21:12:20] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 21:12:20] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 21:12:20] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 21:12:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 21:12:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 21:12:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 21:12:33] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 21:12:40] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:12:41] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 09:13:23(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 21:13:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 21:13:24.004
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 21:13:24] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 21:13:38] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 21:13:38] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 21:13:38] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 21:13:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 21:13:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 21:13:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 21:13:52] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 21:13:57] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-06 09:17:47(VERSION: 8.2) ---------------
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-06 21:17:47.606
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 06/04/2021 21:17:47] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 06/04/2021 21:18:01] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 06/04/2021 21:18:01] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 06/04/2021 21:18:01] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 06/04/2021 21:18:14] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 06/04/2021 21:18:14] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 06/04/2021 21:18:14] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 06/04/2021 21:18:14] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 06/04/2021 21:18:21] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-27
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 06/04/2021 21:18:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-07 02:13:21(VERSION: 8.2) ---------------
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 07/04/2021 14:13:21] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 07/04/2021 14:13:22] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-07 14:13:22.917
+[FECHA: 07/04/2021 14:13:23] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 07/04/2021 14:13:33] [TIPO: INFO ] [ORIGEN: util.ClienteNTP] - Utilizando Servidor NTP: 200.1.116.29
+[FECHA: 07/04/2021 14:13:33] [TIPO: ERROR] [ORIGEN: util.ClienteNTP] Hora Recibida:  Wed, Apr 07 2021 14:13:33.369
+[FECHA: 07/04/2021 14:13:33] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] GenTime: 2021-04-07T14:13:33.369-03:00
+[FECHA: 07/04/2021 14:13:33] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] ExpTime: 2021-04-07T15:13:33.369-03:00
+[FECHA: 07/04/2021 14:13:36] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] WSAA Url= https://wsaa.afip.gov.ar/ws/services/LoginCms
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] INSERT INTO afipws_fe_wsaa_TA VALUES (?,?,?,?,?,?,?,?,?,?,?)
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 3035979785
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: 2021-04-07 02:13:39
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 3: 2021-04-08 12:00:00
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 4: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBkc3Q9IkNOPXdzZmUsIE89QUZJUCwgQz1BUiIgdW5pcXVlX2lkPSIyMjAxODgwMDQxIiBnZW5fdGltZT0iMTYxNzgxNTU1OSIgZXhwX3RpbWU9IjE2MTc4NTg4MTkiLz4KICAgIDxvcGVyYXRpb24gdHlwZT0ibG9naW4iIHZhbHVlPSJncmFudGVkIj4KICAgICAgICA8bG9naW4gZW50aXR5PSIzMzY5MzQ1MDIzOSIgc2VydmljZT0id3NmZSIgdWlkPSJDPWFyLCBPPWNvb3AuYWdyLm1peHRhIGxhIHByb3RlY3RvcmEgbHRkYS4sIFNFUklBTE5VTUJFUj1DVUlUIDMwNTI2NDAwMzAxLCBDTj1hZG1pbiIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjMwNTI2NDAwMzAxIiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 5: sqC2B8iS1dV644UA4xhVvtiMRpWXuKuydwAXRqnnQqESSwD5DqBHAe/6ETDTaq0oHd05EnwqLpff5x+DKk5rmZ8Xf5nik6GyO1AKFZV2JAsHEKBhE5afZRfnjrg4Mo6Ihnpobc3qmWwCPf5n22h55vlvgdeMP9M1pCbIdMOxPjo=
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 6: CN=wsaa, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 7: C=ar, O=coop.agr.mixta la protectora ltda., SERIALNUMBER=CUIT 30526400301, CN=admin
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 8: JAVA
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 9: S
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 10: S
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 11: 2021-04-07 02:13:39
+[FECHA: 07/04/2021 14:13:39] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Ticket nuevo generado con exito!!!!
+[FECHA: 07/04/2021 14:13:42] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 07/04/2021 14:13:42] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 07/04/2021 14:13:42] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 07/04/2021 14:13:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 07/04/2021 14:13:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 07/04/2021 14:13:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 07/04/2021 14:13:50] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 07/04/2021 14:13:58] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 07/04/2021 14:14:00] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-28
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 07/04/2021 14:14:03] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 07/04/2021 14:14:51] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 1
+[FECHA: 07/04/2021 14:15:00] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4812
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-08 01:50:49(VERSION: 8.2) ---------------
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 08/04/2021 13:50:49] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-08 13:50:50.613
+[FECHA: 08/04/2021 13:50:50] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 08/04/2021 13:51:02] [TIPO: INFO ] [ORIGEN: util.ClienteNTP] - Utilizando Servidor NTP: 200.1.116.29
+[FECHA: 08/04/2021 13:51:02] [TIPO: ERROR] [ORIGEN: util.ClienteNTP] Hora Recibida:  Thu, Apr 08 2021 13:51:01.774
+[FECHA: 08/04/2021 13:51:02] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] GenTime: 2021-04-08T13:51:01.774-03:00
+[FECHA: 08/04/2021 13:51:02] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] ExpTime: 2021-04-08T14:51:01.774-03:00
+[FECHA: 08/04/2021 13:51:05] [TIPO: INFO ] [ORIGEN: servicios.AfipWsaaClient] WSAA Url= https://wsaa.afip.gov.ar/ws/services/LoginCms
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] INSERT INTO afipws_fe_wsaa_TA VALUES (?,?,?,?,?,?,?,?,?,?,?)
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2992739721
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: 2021-04-08 01:51:07
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 3: 2021-04-09 12:00:00
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 4: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhLCBPPUFGSVAsIEM9QVIsIFNFUklBTE5VTUJFUj1DVUlUIDMzNjkzNDUwMjM5IiBkc3Q9IkNOPXdzZmUsIE89QUZJUCwgQz1BUiIgdW5pcXVlX2lkPSI2MDYwNjUzODgiIGdlbl90aW1lPSIxNjE3OTAwNjA3IiBleHBfdGltZT0iMTYxNzk0Mzg2NyIvPgogICAgPG9wZXJhdGlvbiB0eXBlPSJsb2dpbiIgdmFsdWU9ImdyYW50ZWQiPgogICAgICAgIDxsb2dpbiBlbnRpdHk9IjMzNjkzNDUwMjM5IiBzZXJ2aWNlPSJ3c2ZlIiB1aWQ9IkM9YXIsIE89Y29vcC5hZ3IubWl4dGEgbGEgcHJvdGVjdG9yYSBsdGRhLiwgU0VSSUFMTlVNQkVSPUNVSVQgMzA1MjY0MDAzMDEsIENOPWFkbWluIiBhdXRobWV0aG9kPSJjbXMiIHJlZ21ldGhvZD0iMjIiPgogICAgICAgICAgICA8cmVsYXRpb25zPgogICAgICAgICAgICAgICAgPHJlbGF0aW9uIGtleT0iMzA1MjY0MDAzMDEiIHJlbHR5cGU9IjQiLz4KICAgICAgICAgICAgPC9yZWxhdGlvbnM+CiAgICAgICAgPC9sb2dpbj4KICAgIDwvb3BlcmF0aW9uPgo8L3Nzbz4K
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 5: CAy1J/T4zhHzE/4xWdM/wTL/CFarSM+LuqCm93CZja/LCmnOg0GBjrkLVZRq8h6td/wrAIsiGr06u6pOeCCt8vtnuwewGwKS+8RQq3DKiZE9jEctwRwLi/+IuZWAFG80iod19omMmLjnxrvlVZBifLo+hd5fe0gBkjFihdGoOoI=
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 6: CN=wsaa, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 7: C=ar, O=coop.agr.mixta la protectora ltda., SERIALNUMBER=CUIT 30526400301, CN=admin
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 8: JAVA
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 9: S
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 10: S
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 11: 2021-04-08 01:51:09
+[FECHA: 08/04/2021 13:51:09] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Ticket nuevo generado con exito!!!!
+[FECHA: 08/04/2021 13:51:15] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 08/04/2021 13:51:15] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 08/04/2021 13:51:15] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 08/04/2021 13:51:25] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 08/04/2021 13:51:25] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 08/04/2021 13:51:25] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 08/04/2021 13:51:25] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 08/04/2021 13:51:32] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 08/04/2021 13:51:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-29
+[FECHA: 08/04/2021 13:51:36] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 3 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 08/04/2021 13:51:36] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:51:36] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:51:36] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 08/04/2021 13:51:37] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] SELECT * FROM afipws_fe_detalle WHERE CbteTipo = 3 AND TipoDetalle = 2 AND PtoVta = 31 AND CbteDesde = 1619
+[FECHA: 08/04/2021 13:51:37] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:51:37] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:51:37] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 08/04/2021 13:51:51] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 1
+[FECHA: 08/04/2021 13:51:59] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4812
+[FECHA: 08/04/2021 13:52:23] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] RESULTADO PROCESO NRO 1
+[FECHA: 08/04/2021 13:52:30] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] 	 Todos los comprobantes fueron aprobados.
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] UPDATE afipws_fe_master SET  CAE = ?, CAEFchVto = ?, Resultado = ?, tipo_Comp = ?, pto_emision = ?, v_numero_comprobante = ? WHERE CbteTipo = ? AND PtoVta = ? AND CbteDesde = ? 
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 71141415421229
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 20210411
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: A
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 3
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 31
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 6: 4813
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 7: 3
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 8: 31
+[FECHA: 08/04/2021 13:52:33] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 9: 1619
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] UPDATE afipws_fe_detalle SET  tipo_Comp = ?, pto_emision = ?, v_numero_comprobante = ? WHERE CbteTipo = ? AND PtoVta = ? AND CbteDesde = ? 
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 4813
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 6: 1619
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] UPDATE fac_ventas SET  autorizado_sn = 'S', tipo_autorizado = ?, pto_autorizado = ?, nro_autorizado = ?, fe_autorizado = ?, CAE= ?, fe_vto = ? WHERE v_tipo_comprobante = ? AND Pto_numero = ? AND v_numero_comprobante = ? 
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 4813
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 2021-04-08
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 71141415421229
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 6: 20210411
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 7: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 8: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 9: 1619
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] UPDATE fac_ventas_dolar SET  autorizado_sn = 'S', tipo_autorizado = ?, pto_autorizado = ?, nro_autorizado = ?, fe_autorizado = ?, CAE= ?, fe_vto = ? WHERE v_tipo_comprobante = ? AND Pto_numero = ? AND v_numero_comprobante = ?  
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 4813
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 2021-04-08
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 71141415421229
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 6: 20210411
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 7: 3
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 8: 31
+[FECHA: 08/04/2021 13:52:34] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 9: 1619
+[FECHA: 08/04/2021 13:52:46] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo Comprobante aprobado despues del proceso:
+[FECHA: 08/04/2021 13:52:47] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Tipo Cbte: 3 - Pto Venta: 31 - Nro Cbte: 4813
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] --------------- INICIO PROCESO 2021-04-08 01:52:58(VERSION: 8.2) ---------------
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] Validando Parametros...
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Operacion: FeCAESolicitar
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Tipo Comprobante: 3
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Punto de Venta: 31
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Desde: 1619
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Cbte Hasta: 1619
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Parametros OK!
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ?
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsaa_TRA_java WHERE TestSN = ? - Valor Parametro: N
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT emp_cuit FROM Empresas WHERE emp_codigo = ? - Valor Parametro: 1
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_wsfe WHERE TestSN = ? AND servicio = ?
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: N
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 2: wsfe
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] UPDATE afipws_fe_wsaa_TA SET activo = 'N' WHERE exptime < ? 
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Parametro 1: 2021-04-08 13:52:58.521
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] SELECT * FROM afipws_fe_wsaa_TA WHERE activo = 'S'
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: controladores.ControladorTickets] Reutilizando ticket activo
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexion a internet...
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion a internet (puerto 80) OK!
+[FECHA: 08/04/2021 13:52:58] [TIPO: INFO ] [ORIGEN: main.Main] Validando conexión con la AFIP...
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Autenticación: OK
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Aplicaciones: OK
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: main.Main] 	 Servidor de Base de datos: OK
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: main.Main] 	 Conexion con la AFIP OK!
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Buscando comprobantes en la base de datos...
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes]  SELECT DISTINCT fac_ventas.autorizado_sn, afipws_fe_master.* FROM afipws_fe_master  INNER JOIN fac_ventas ON afipws_fe_master.CbteTipo = fac_ventas.v_tipo_comprobante  AND afipws_fe_master.PtoVta = fac_ventas.pto_numero AND  afipws_fe_master.CbteDesde = fac_ventas.v_numero_comprobante  WHERE fac_ventas.autorizado_sn = 'N'  AND (CbteTipo = ? AND PtoVta = ? AND CbteDesde >= ? AND CbteDesde <= ?) AND v_fecha_operacion >= ? 
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 1: 3
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 2: 31
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 3: 1619
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 4: 1619
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: controladores.ControladorComprobantes] Parametro 5: 2021-03-29
+[FECHA: 08/04/2021 13:53:02] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] - Cantidad de comprobantes encontrados: 0
+[FECHA: 08/04/2021 13:53:03] [TIPO: INFO ] [ORIGEN: servicios.ServicioAFIP] Ultimo numero comprobante autorizado para el tipo 3 y el punto de venta 31: 4813
+[FECHA: 08/04/2021 13:53:03] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] No se encontraron comprobantes con esos parametros
+[FECHA: 08/04/2021 13:53:03] [TIPO: ERROR] [ORIGEN: servicios.ServicioAFIP] Error autorizando comprobantes: No se encontraron comprobantes con los parametros recibidos
+[FECHA: 08/04/2021 13:53:03] [TIPO: ERROR] [ORIGEN: main.Main] ATENCION!!! Resultado final con errores: Error autorizando comprobantes:
+[FECHA: 08/04/2021 13:53:03] [TIPO: INFO ] [ORIGEN: main.Main] ------------------- FIN PROCESO 2021-04-08 01:53:03 -------------------
